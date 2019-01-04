@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单封装测试</title>
+</head>
+<body>
+<h1>表单</h1>
+<form action="/user/userform/" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit">
+
+</form>
+
+
+
+</body>
+</html>

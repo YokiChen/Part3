@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+<head>
+	<!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Favicon-->
+	<link rel="shortcut icon" href="img/fav.png">
+	<!-- Author Meta -->
+	<meta name="author" content="CodePixar">
+	<!-- Meta Description -->
+	<meta name="description" content="">
+	<!-- Meta Keyword -->
+	<meta name="keywords" content="">
+	<!-- meta character set -->
+	<meta charset="UTF-8">
+	<!-- Site Title -->
+	<title>{% block title %}Pink Sky{% endblock %}</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,500,600" rel="stylesheet">
+		<!--CSS	
+			
+			============================================= -->
+
+
+		<link rel="stylesheet" href="/static/css/linearicons.css">
+		<link rel="stylesheet" href="/static/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/static/css/nice-select.css">
+		<link rel="stylesheet" href="/static/css/magnific-popup.css">
+		<link rel="stylesheet" href="/static/css/bootstrap.css">
+		<link rel="stylesheet" href="/static/css/main.css">
+	</head>
+	<body>
+		<!-- Header Area -->
+		<div class="main-wrapper-first">
+			<header>
+				<div class="container">
+					<div class="header-wrap">
+						<div class="header-top d-flex justify-content-between align-items-center">
+							<div class="logo">
+								<a href="index.html"><img src="/static/img/logo.png" alt=""></a>
+							</div>
+							<div class="main-menubar d-flex align-items-center">
+								<nav class="hide">
+									<a href="user/index">Home</a>
+									<a href="/user/blog_login">Login</a>
+									<a href="/user/blog_regist">Register</a>
+									<a href="/user/blog_end/">Log off</a>
+								</nav>
+								<div class="menu-bar"><span class="lnr lnr-menu"></span></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</header>
+		</div>
+		<!-- End Header Area -->
+		<!-- Banner Area -->
+		<div class="main-wrapper">
+			<div class="banner-area">
+				<div class="container">
+					<div class="row height justify-content-center align-items-center">
+						<div class="col-lg-5 col-sm-6 col-xs-6">
+							<div class="banner-content">
+
+
+								{% block content %}蓝天计划内容{% endblock %}
+									
+
+									
+<!-- 								<button class="primary-btn white-bg d-inline-flex align-items-center mt-10 ml-auto">
+									<span class="mr-10"><a href="">Loging</a></span>
+									<span class="lnr lnr-arrow-right"></span>
+								</button> -->
+							</div>
+						</div>
+						<div class="col-lg-5 col-sm-6 col-xs-6"  >
+							<img  class="img-fluid mx-auto" style="position: relative; left: 110px;" src="/static/img/header-img.png" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<script src="/static/js/vendor/jquery-2.2.4.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+		<script src="/static/js/vendor/bootstrap.min.js"></script>
+		<script src="/static/js/jquery.ajaxchimp.min.js"></script>
+		<script src="/static/js/jquery.nice-select.min.js"></script>
+		<script src="/static/js/jquery.magnific-popup.min.js"></script>
+		<script src="/static/js/main.js"></script>
+	</body>
+</html>

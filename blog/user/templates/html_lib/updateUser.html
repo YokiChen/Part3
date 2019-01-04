@@ -1,0 +1,25 @@
+{% extends 'baseblog.html' %}
+
+{% block content %}
+    <div style="position:relative; left:160px ">
+
+        <form action="{% url 'user:updateUser' user.id %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="sid" value="{{user.id}}">
+            <h1>修改</h1>
+            姓名：<input type="text" name="name" value="{{user.name}}">
+            <br><br>
+            密码：<input type="password" name="pwd" value="{{user.password}}">
+            <br>
+            <br>
+            提交：<input type="submit" value="确定">
+        </form>
+
+            <div>
+                <a href="/user/index/"><h3>返回首页</h3></a>
+            </div>
+
+    </div>
+
+
+{% endblock %}

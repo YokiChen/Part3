@@ -1,0 +1,65 @@
+{% extends 'pink_base.html' %}
+
+{% block content %}
+
+    {% if error == 'noname' %}
+    <br>
+        <div style="position:relative; left:40px">
+            <h1 style="color: white;">This user does not exist. Please log in again. </h1>
+            <br><br>
+            <a style="font-size:30px; color:gainsboro" href="/user/blog_login/">login again1</a>
+            <a style="font-size:30px; color:gainsboro" href="/user/index/">Back Home</a>
+
+        </div>
+
+    {% elif error == 'faultcode' %}
+        <div style="position:relative; left:40px ;">
+            <h1 style="color: white;">The faultcode is incorrect. Please Click to login again.</h1>
+            <br><br>
+            <a style="font-size:30px; color:gainsboro" href="/user/blog_login/">login again11</a>
+            <a style="font-size:30px; color:gainsboro" href="/user/index/">Back home</a>
+        </div>
+
+    {% elif error == 'nopwd' %}
+        <div style="position:relative; left:40px ;">
+            <h1 style="color: white;">The password you entered is incorrect. Please Click to login again.</h1>
+            <br><br>
+            <a style="font-size:30px; color:gainsboro" href="/user/blog_login/">login again11</a>
+            <a style="font-size:30px; color:gainsboro" href="/user/index/">Back home</a>
+        </div>
+
+        {%else%}
+        <div >
+            <h1>{{ request.session.loginUser.name }} Loing Successful</h1>
+            <br> <br>
+            <a style="font-size:23px; color:#F0FFFF" href="/user/allteacher/">1. 点击导师老师的信息</a>
+            <br><br>
+            <a style="font-size:23px; color:#F0FFFF" href="/user/allstu/">2. 点击查看所有学员的信息</a>
+            <br><br>
+            <!--<a style="font-size:23px; color:#F0FFFF" href="/user/artcle/">3. 点击查看所有学员的洗脑文章</a>-->
+
+            <div>
+
+                <form method='get' action="/search/" target="_blank">
+                    {% csrf_token %}
+                    <input type="text" name="q">
+                    <input type="submit" value="查询">
+                </form>
+
+            </div>
+
+
+
+        </div>
+
+
+<br>
+<br>
+
+    <div style="position:relative; left:40px">
+
+        <a style="font-size:30px; position:relative; left:150px; color:yellow;" href="/user/blog_login/">返回登录</a>
+    </div>
+    {% endif %}
+
+{% endblock %}

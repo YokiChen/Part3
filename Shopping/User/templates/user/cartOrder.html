@@ -1,0 +1,80 @@
+
+{% extends 'shop_base.html' %}
+
+{% block title %}购物车{% endblock %}
+
+{% block style %}
+	<style type="text/css">
+		#div1 th{
+			text-align: center;
+			background-color: #ff5d56;
+			color: white;
+		}
+		#div1 td{
+			background-color: antiquewhite;
+			text-align: center;
+		}
+	</style>
+{% endblock %}
+
+{% block content %}
+<br><br>
+<div class="container">
+	
+	<div id="div1" class="col-lg-10 col-lg-offset-2">
+		
+		<h1 style="text-align: center;">购物车</h1>
+		<br>		
+		
+		<form action="{% url 'user:cartOrder' %}" method="post">
+			{% csrf_token %}
+			
+				<div style="margin: 0 auto;">
+					<table border="2px" style="border: 2px solid white;" >
+						<tr style="height: 45px; font-size: 17px;">
+							<th class="col-lg-1">选择</th>
+							<th class="col-lg-8">选择收货地址</th>					
+						</tr>
+						{% for i in addrs %}
+						<tr style="height:36px">
+							<td><input type="radio" name="addr" value="{{i.rec_name}} {{i.rec_phone}} {{i.rec_deta}}"></td>
+							<td>{{i.rec_name}} {{i.rec_phone}} {{i.rec_deta}}</td>
+						</tr>
+						{% endfor %}
+		
+					</table>
+				</div>
+			<br>
+
+			<div>
+				<table border="2px" style="border: white solid 2px;" class="col-lg-10" >
+					<tr style="height: 40px;">
+						<th class="col-lg-1">请选择商品</th>
+						<th class="col-lg-2">商品名字</th>
+						<th class="col-lg-1">件数</th>
+						<th class="col-lg-1">商品单价</th>
+					</tr>
+					{% for c in cart %}
+					<tr>
+						<td><input type="checkbox" name="cd" value="{{c.c_name}} {{c.c_num}} {{c.c_total}} {{c.c_store_id}} "></td>
+						<td>{{c.c_name}}</td>
+						<td>{{c.c_num}}</td>
+						<td>{{c.c_total}}</td>
+					</tr>
+					{% endfor %}
+				</table>
+			</div>
+			<div class="col-lg-3 col-lg-offset-8">
+				<br>
+				<input style="position: relative; left: 100px;" type="submit">
+			</div>
+
+			
+		</form>
+			
+	</div>
+
+</div>
+
+{% endblock %}
+

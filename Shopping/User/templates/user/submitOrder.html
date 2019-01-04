@@ -1,0 +1,78 @@
+{% extends 'shop_base.html' %}
+
+{% block title %}提交订单{% endblock %}
+
+{% block style %}
+	<style type="text/css">
+		#div2 th{
+			/* border: #000000 solid 2px; */
+			/* width: 500px; */
+			/* background-color: lemonchiffon; */
+			text-align: center;
+			font-size: 20px;
+		}
+		
+		#div1 input{
+			background-color:rgba(0, 0, 0, 0) ;
+			border: none;
+		}
+
+	</style>
+	
+{% endblock %}
+
+	{% block back %}
+	<div class="back">
+		<h2>提交订单</h2>
+	
+	</div>
+	{% endblock %}
+
+{% block content %}
+<br><br>
+<br>
+<br>
+	<div class="container" id="div1">
+		<div class="col-lg-10 col-lg-offset-1">
+			<form action="{% url 'user:createOrder' good_id store_id %}" method="post">
+				{% csrf_token %}}
+				<br>
+				<div id="div2">
+					<table border="" cellspacing="" cellpadding=""  style="border: white 2px solid;">
+						<tr style="text-align: center; background-color: #ff5d56; color: white; height: 50px;">
+							<th style="width: 400px;">寄送至</th>
+							<th style="width: 120px;">商品名字</th>
+							<th style="width: 100px;">数量</th>
+							<th style="width: 120px;">总价</th>
+						</tr>
+						<tr style="background-color: #F7ECB5; height: 40px;">
+							<td><input  style="width: 400px;" type="text" value="{{str1}}" name="addr"  onfocus=this.blur()></td>
+							<td><input type="text" value="{{good_name}}" name="good_name"  onfocus=this.blur()></td>
+							<td><input type="text" value="{{good_num}}" name="good_num" onfocus=this.blur()></td>
+							<td><input type="text" value="{{total}}" name="total" onfocus=this.blur() ></td>
+						</tr>
+					</table>		
+					<br>					
+				</div>
+				
+				<div class="col-lg-4 col-lg-offset-8">
+					<h4>确定提交订单</h4>
+		
+					请选择付款方式：
+					<select name="apply" id="">
+						<option value="花呗">花呗</option>
+						<option value="支付宝">支付宝</option>
+						<option value="微信">微信</option>
+					</select>
+					<br>
+					<input style="background-color: #ff5d56; color: white;" type="submit" value="确认付款">
+		
+				</div>
+
+			</form>
+		</div>
+
+	</div>
+
+	
+{% endblock %}

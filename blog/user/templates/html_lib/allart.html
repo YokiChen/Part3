@@ -1,0 +1,19 @@
+{% extends 'baseblog.html' %}
+
+{% block content %}
+<br><br>
+    <div style="position:relative; left:160px ;width:650px;">
+        <h1>查看所有文章</h1>
+        <table >
+            {% for art in arts %}
+            <tr>
+                <td><h2>{{art.author}}</h2></td>
+                <td> <h2>{{art.content}}</h2></td>
+                <td><a href="/user/updateart/{{art.id}}">修改</a></td>
+                <td><a href="/user/deleteart/{{art.id}}">删除</a></td>
+
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,52 @@
+
+{% extends 'shop_base.html' %}
+
+{% block title %}购物车{% endblock %}
+
+{% block style %}
+	<style type="text/css">
+		#div1 th{
+			text-align: center;
+			background-color: #ff5d56;
+			color: white;
+		}
+		#div1 td{
+			background-color: antiquewhite;
+			text-align: center;
+		}
+	</style>
+{% endblock %}
+
+{% block content %}
+<br><br>
+<div class="container">
+	<div class="col-lg-3">
+		
+		<form action="{% url 'user:prodectOrder' %}" method="post">
+			{% csrf_token %}
+			寄送至：<input type="text" value="{{addrs}}" name="addr"  style="width: 400px; border:0px" readonly="readonly"><br><br>
+			{% for g in good %}
+					商品: <input type="text" value="{{g.0}}" name="good_name" readonly style="border:0px;"><br>
+					数量：<input type="text" value="{{g.1}}" name="good_num" readonly style="border:0px"><br>
+					总价：<input type="text" value="{{g.2}}" name="total" readonly style="border:0px"><br><br>
+			{% endfor %}
+			<span>总价：{{sum}}</span><br><br>
+			请选择付款方式：
+			<select name="apply" id="">
+				<option value="花呗">花呗</option>
+				<option value="支付宝">支付宝</option>
+				<option value="微信">微信</option>
+			</select>
+			<br>
+			<input type="submit" value="支付">
+			</form>
+		
+	</div>
+	
+
+
+
+</div>
+
+{% endblock %}
+

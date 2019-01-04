@@ -1,0 +1,65 @@
+{% extends 'shop_base.html' %}
+
+{% block title %}提交订单{% endblock %}
+
+{% block style %}
+	<style type="text/css">
+		#div1 th{
+			width: 200px;
+			text-align: center;
+			background-color: #FCF8E3;
+		}
+		#div1 td{
+			
+			text-align: center;
+		}
+	</style>
+	
+{% endblock %}
+
+	{% block back %}
+	<div class="back">
+		<h2>提交订单</h2>
+	</div>
+	{% endblock %}
+
+{% block content %}
+
+<br>
+<br>
+<br>
+	<div class="container">
+		
+		<div class="col-lg-8 col-lg-offset-2">
+			
+			<form action="{% url 'user:postOrder' good_id store_id %}" method="post" id="buygoods" >
+				{% csrf_token %}
+				<table border="" cellspacing="" cellpadding="">
+					<tr style="background-color: #ff5d56; color: white; height: 45px; ; font-size: 22px;">
+						<th style="width: 180px;"><p style="text-align: center;">选择地址</p></th>
+						<th style="width: 600px;"><p style="text-align: center;"> 用户详细信息</p></th>
+					</tr>
+					
+					{% for i in adds %}
+					<tr style="background-color: blanchedalmond; width: 400px; height: 36px;">
+						<td style="text-align: center;"><input type="radio" name="addr" value="{{i.rec_name}} {{i.rec_phone}} {{i.rec_deta}}"></td>
+						<td>{{i.rec_name}} {{i.rec_phone}} {{i.rec_deta}}</td>
+						
+					</tr>
+					{% endfor %}
+				</table>
+				<br>
+				<div >
+					购买的商品的数量: <input type="number" placeholder="请选择购买数量" name="buy_num" id="buy_num"><br>{{str1}}
+					购买的商品单价：<input type="number" value="{{good_price}}" name="good_price"><br>
+					<br>
+					<input type="submit" value="确定" >
+				</div>
+			</form>
+		</div>
+		
+			
+		</div>
+
+	
+{% endblock %}

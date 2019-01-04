@@ -1,0 +1,39 @@
+
+{% extends 'shop_base.html' %}
+
+{% block title %}商品库存不足{% endblock %}
+
+{% block style %}
+	<style type="text/css">
+		#div1 th{
+			width: 200px;
+			text-align: center;
+			background-color: #FCF8E3;
+		}
+		#div1 td{
+			
+			text-align: center;
+		}
+	</style>
+	
+{% endblock %}
+
+	{% block back %}
+	<div class="back">
+		<h2>购买成功</h2>
+	</div>
+	{% endblock %}
+		
+	{% block content %}
+
+		<div class="container">
+			订单已提交
+		<a href="/user/u_allgoods">继续购买</a>
+        </div>
+		
+	{% endblock %}
+	
+
+
+
+

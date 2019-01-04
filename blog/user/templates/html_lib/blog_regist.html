@@ -1,0 +1,33 @@
+{% extends 'baseblog.html' %}
+
+{% block content %}
+    <div style="position:relative; left:160px ">
+
+        <form action="/user/blog_registsuccess/" method="post">
+            {% csrf_token %}
+            <h1>注册</h1>
+            姓名：<input type="text" name="name">
+            <br><br>
+            导师id：<input type="text" name="teaid_id">
+            <br>
+            性别：<br>
+            男：<input type="radio" name="gender" >
+            女：<input type="radio" name="gender">
+            <br><br>
+            密码：<input type="password" name="pwd">
+                        <br>
+            请确认密码：<input type="password" name="pwdd">
+            <br>
+            <br>
+
+            提交：<input type="submit" value="确定发财">
+        </form>
+
+            <div>
+                <a href="/user/index/"><h3>返回首页</h3></a>
+            </div>
+
+    </div>
+
+
+{% endblock %}

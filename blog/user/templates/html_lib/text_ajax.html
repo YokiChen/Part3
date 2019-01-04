@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax测试</title>
+    <script src="/static/lib/JQ/jquery-2.1.4.js"></script>
+
+</head>
+<body>
+    <div id="div"></div>
+    <h1>AJAX测试</h1>
+    <button id="click111">测试按钮</button>
+    <script>
+        $("#click111").click(function(){
+          {#  $("#div1").css("background-color","red") #}
+          {# 下面的路径跟的是在浏览器里后面跟的路径 #}
+          {# 也就是url里写的路径，不是view视图里返回的页面的相对路径 #}
+          $.ajax({
+            url: '/user/ajaxa/',
+            type: 'POST',
+            dataType: 'JSON',
+            success:function(data){
+            {# 在对应视图里发送过来的数据都是data（funtion后面跟的）#}
+            {# 中间fields是数据序列化之后的字典的一个键值 #}
+                alert(typeof(data));
+                JSON.parse  {#  #}
+                {# alert(data[1]['fields']['name']); #}
+            }
+
+
+          })
+
+
+
+        })
+
+    </script>
+
+</body>
+</html>

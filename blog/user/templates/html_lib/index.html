@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+
+</head>
+<body>
+    <div style="background-image: url(/static/user/img/background.jpg)" >
+        <h1>尊敬的用户，欢迎您进入蓝天计划</h1>
+        <h2>注册登录请点击</h2>
+        <img style="width:400px" src="/static/img/001.jpg" alt="图片找不到">
+        {% load static %}
+        <img style="width:400px" src="{% static 'user/img/bawei.jpg '%}" alt="图片找不到">
+        <ul>
+            <li><a style="font-size:25px; " href="http://127.0.0.1:8000/user/login/">登录</a></li>
+            <li><a style="font-size:25px; " href="http://127.0.0.1:8000/user/register/">注册</a></li>
+        </ul>
+
+        <div>
+            {# name是链接的py文件的键值，author是对象属性，py里获取的是对象 #}
+            {{name.author}}
+            {{name.id}}
+            {% if name.id == 1 %}
+                <h3>这几本书写的不错，你可以回家吃饭了</h3>
+            {% elif name.id == 2 %}
+                <h3>小老弟，你这不行啊</h3>
+            {% else %}
+                <h3>下课玩的比谁都开心，上课睡的比谁都死</h3>
+            {% endif %}
+
+            {% for num in stuid %}
+                {{num}}
+            {% empty %}
+                <h3>找不到数据</h3>
+            {% endfor %}
+            <form action="/user/index1.html" method="post">
+            <form action="{% url 'user:iii' %}" method="post">
+
+                {% csrf_token %}
+                姓名：<input type="text" name="name">
+                <br>
+                提交：<input type="submit">
+            </form>
+
+
+
+            {#<span>Welcome to bule Sky!!</span>#}
+
+            {% comment %}
+                啦啦啦
+                哈哈哈
+            {% endcomment %}
+
+        </div>
+
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+{% extends 'pink_base.html' %}
+
+{% block content %}
+    <div style="position:relative; left:160px ">
+        <h1>修改文章</h1>
+        <form action="{% url 'user:updateart' art.id %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="aid" value="{{art.id}}">
+            <input type="text" name="title">
+
+                <textarea name="content" cols="30" rows="10"></textarea>
+            <br>
+
+            <br>
+            提交：<input type="submit" value="确定">
+        </form>
+
+            <div>
+                <a href="/user/index/"><h3>返回首页</h3></a>
+            </div>
+
+    </div>
+
+
+{% endblock %}

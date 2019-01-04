@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Letter - Simple Sign Up Form</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">  <!-- Google web font "Open Sans" -->
+  <link rel="stylesheet" href="/static/letter/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/static/letter/css/bootstrap.min.css">
+  
+  <link rel="stylesheet" href="/static/letter/css/demo.css" />
+  <link rel="stylesheet" href="/static/letter/css/templatemo-style.css">
+  
+  <script type="text/javascript" src="/static/letter/js/modernizr.custom.86080.js"></script>
+    <script type="text/javascript" src="/static/js/lib/jQuary/jquery-2.1.4.js"></script>
+		<style type="text/css">
+			.span1{
+				color:white;
+			}
+			.input1{
+				border:0px;
+				background:rgba(0, 0, 0, 0); 
+				color: white; 
+				border-bottom:1px solid white; 
+				margin: 15px auto;		
+			}
+			.input2{
+				background:rgba(0, 0, 0, 0); 
+				color: white; 
+				border:1px solid white; 
+				margin: 15px auto;					
+				
+			}
+			.input2:hover{
+				background-color: white;
+				color: black;
+			}
+			
+		</style>
+
+	</head>
+
+	<body>
+
+			<div id="particles-js"></div>
+		
+			<ul class="cb-slideshow">
+	            <li></li>
+	            <li></li>
+	            <li></li>
+	            <li></li>
+	            <li></li>
+	            <li></li>
+	        </ul>
+            <br>
+            <br>
+
+			<div class="container-fluid">
+				<div class="row cb-slideshow-text-container ">
+					<div class= "tm-content col-xl-6 col-sm-8 col-xs-8 ml-auto section">
+					<header class="mb-5"><h1>Time Blog Login</h1></header>
+					<p class="mb-5">Youth is a wonderful and another to go to The Times， is the beginning of all the light and happiness in the future!</p>
+					
+                <form  method="post" class="subscribe-form" id="loginform">
+									{% csrf_token %}
+									<div class="col-md-9  col-sm-9 col-xs-12" style="border: white solid 1px; border-radius: 20px;" >
+										 <span class="span1">Username: </span><input type="text" class="input1" style="width: 300px;">
+										 <br>
+										 <span class="span1">password: </span><input type="password" class="input1" style="width: 310px;">
+										 <br>
+										 <span class="span1">验证码: </span><input type="text" name="" id=""  value="" class="input1" style="width: 330px;">
+										 
+										 
+										 <div style="width: 390px; margin: 0 auto;">
+											 
+												 <input type="submit" id="" name="" value="提交" class="input2" style="border-radius: 10px;" />
+												 <input type="reset" id="" name="" value="重置" class="input2" style="border-radius: 10px;" />
+										 </div>
+										 <br>
+										 
+									</div>
+
+									</div>
+               	  
+                    </form>
+                    
+
+
+					</div>
+				</div>	
+
+			</div>
+
+            <script>
+                 function refresh_check_code(node) {
+                 // src 后面加问号会自动刷新验证码 img 的 src
+                // get 请求方式缓存处理
+                 node.src = '/user/createimg/?search=' + Math.random();
+                 }
+            </script>
+            <script>
+                 $('#btn').on("click",function(){
+
+                    var check = $("#code").val();
+                    console.log(check)
+                    $.ajax({
+                        url:'/user/login/',
+                        type:'POST',
+                        dataType:'JSON',
+                        data:$('#loginform').serialize(),
+                        success: function(data){
+                          if(data.data.login==undefined){
+                            alert(data.data.name);
+                          }
+                          else{
+                            window.location.href="http://127.0.0.1:8000/user/Personal_blog/"+data.data.userid;
+                          }
+                        },
+                    })
+                })
+            </script>
+
+
+	</body>
+
+	<script type="text/javascript" src="/static/letter/js/particles.js"></script>
+	<script type="text/javascript" src="/static/letter/js/app.js"></script>
+</html>

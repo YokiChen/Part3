@@ -1,0 +1,16 @@
+{% extends 'pink_base.html' %}
+
+{% block content %}
+<br><br>
+    <div style="position:relative; left:160px ;width:350px;">
+        <h1>查看所有导师信息</h1>
+        <table >
+            {% for tea in teachers %}
+            <tr>
+                <td><h2>{{tea.name}}</h2></td>
+                <td> <h2>{{tea.age}}</h2></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

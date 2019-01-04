@@ -1,0 +1,38 @@
+
+{% extends 'shop_base.html' %}
+
+{% block title %}商品库存不足{% endblock %}
+
+{% block style %}
+	<style type="text/css">
+		#div1 th{
+			width: 200px;
+			text-align: center;
+			background-color: #FCF8E3;
+		}
+		#div1 td{
+			
+			text-align: center;
+		}
+	</style>
+	
+{% endblock %}
+
+	{% block back %}
+	<div class="back">
+		<h2>库存不足</h2>
+	</div>
+	{% endblock %}
+		
+	{% block content %}
+
+		<div class="container">
+			{{good_name}}{{msg}}，<a href="/user/u_allgoods">重新选择商品</a>
+        </div>
+		
+	{% endblock %}
+	
+
+
+
+

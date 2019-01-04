@@ -1,0 +1,67 @@
+
+{% extends 'shop_base.html' %}
+
+{% block title %}所有商品{% endblock %}
+
+{% block style %}
+	<style type="text/css">
+		#div1 th{
+			width: 200px;
+			text-align: center;
+			background-color: #FCF8E3;
+		}
+		#div1 td{
+			
+			text-align: center;
+		}
+	</style>
+	
+{% endblock %}
+
+	{% block back %}
+	<div class="back">
+		<img src="/{{store.store_pic}}" style="width: 100px; border-radius: 50%; " >	
+		<span style="font-size: 40px;color: white; margin: 0 30px;">{{store.store_name}}</span>
+	</div>
+	{% endblock %}
+		
+	{% block content %}
+	<br><br>
+
+		<br><br><br><br>
+
+		<div class="container">
+			{% for i in gs %}
+				<div class="col-md-3 product-left"> 
+					<div class="p-one simpleCart_shelfItem">							
+							<a href="/user/goodDetal/{{i.good_id}}/{{i.sotre_id}}">
+								<img style="width: 280px;" src="/{{i.good_img}}" alt="正在加载中..." />
+								<div class="mask">
+									<span>Quick View</span>
+								</div>
+							</a>
+						<h4>{{i.good_name}}</h4>
+						
+						<p><a class="item_add" href="#"><i></i> <span class=" item_price">{{i.good_price}}</span></a></p>				
+					</div>
+					<span>销量：{{i.sale_num}}</span><span>库存：{{i.rema_num}}</span><br>
+					
+					<a href="/user/buyGoods/{{i.good_id}}/{{i.sotre_id}}">购买</a>
+					
+					
+					<a href="/user/addCart/{{i.good_id}}/{{i.sotre_id}}">加入购物车</a>
+				<br>
+			</div>
+			{% endfor %}
+
+	</div>
+	
+	
+		
+	{% endblock %}
+	
+
+
+
+
+

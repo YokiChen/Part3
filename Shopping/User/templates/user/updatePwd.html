@@ -1,0 +1,59 @@
+
+{% extends 'shop_base.html' %}
+
+{% block title %}所有商品{% endblock %}
+
+{% block style %}
+	<style type="text/css">
+		input{
+			height: 45px;
+			width: 430px;
+			
+		}
+	</style>
+	
+{% endblock %}
+
+	{% block back %}
+	
+	<div class="back">
+		<h2>修改密码</h2>
+	</div>
+	{% endblock %}
+		
+	{% block content %}
+	<br><br><br><br>
+		<div class="container">
+			<div class="login" style="margin: 40px;">
+				<div class="main-agileits">
+						<div class="form-w3agile">
+							<h2 style="text-align: center;margin:0 35px;">Change Your Pwd</h2>
+								<br><br>
+								<form action="{% url 'user:updatePwd' %}" method="post">
+									{% csrf_token %}
+									<input type="password" name="oldpwd" placeholder="请输入旧密码">{{msg3}}
+									 <br><br>
+									<input type="password" name="newpwd" placeholder="请输入新密码">{{msg1}}
+									<br><br>
+									<input type="password" name="newpwd1" placeholder="请确认新密码">{{msg2}}
+									<br><br>
+									<input type="submit">
+								</form>
+
+						</div>
+						</div>
+					</div>
+				</div>
+
+
+			    <div class=" login-left">
+			  	 <h3>NEW CUSTOMERS</h3>
+				 <p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
+				 <a class="acount-btn" href="register.html">Create an Account</a>
+			   </div>		
+			</div>
+		
+	{% endblock %}
+	
+
+

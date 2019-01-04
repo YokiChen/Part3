@@ -1,0 +1,37 @@
+{% extends 'pink_base.html' %}
+
+{% block content %}
+<br><br>
+    <div style="position:relative; left:160px ;width:250px;">
+        <form style="font-size:24px" action="/user/blog_loginsuccess/" method="post">
+            {% csrf_token %}
+            姓名：<input type="text" name="name">
+            <br>
+            密码：<input type="password" name="password">
+            <br>
+            <p style="font-size: 20px">
+             请输入验证码：
+                <br>
+                <!--<a href="{% url 'user:createCode' %}">点击生成验证码</a>-->
+                <input type="text" name="code" id="code">
+                <img src="/user/creatCode/" alt="" onclick="recode(this)">
+            </p>
+            <script>
+                 function recode(node) {
+                 node.src = '/user/creatCode/?search=' + Math.random();
+                 }
+            </script>
+
+            <br>
+            提交：<input type="submit" style="height:25px">
+        </form>
+
+            <div>
+                <a style="color:#EBECE9; text-decoration: none;" href="http://127.0.0.1:8000/user/index/"><h3>返回首页</h3></a>
+            </div>
+
+    </div>
+
+
+
+{% endblock %}

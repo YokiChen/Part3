@@ -1,0 +1,81 @@
+
+{% extends 'shop_base.html' %}
+
+{% block title %}所有商品{% endblock %}
+
+{% block style %}
+	<style type="text/css">
+		#div1 th{
+			width: 200px;
+			text-align: center;
+			background-color: #FCF8E3;
+		}
+		#div1 td{
+			
+			text-align: center;
+		}
+	</style>
+	
+{% endblock %}
+
+	{% block back %}
+	
+	<div class="back">
+		
+		<div >
+			<h2>查看所有商品</h2>
+
+		</div>
+
+		<div style="display: inline-block; position: relative;right: -500px; top: -10px;">
+			<form method='post' action="{% url 'user:searchGoods' %}" >
+			{% csrf_token %}
+			<input type="text" name="q">
+			<input type="submit" value="查询">
+			</form>
+		</div>
+
+	</div>
+
+	{% endblock %}
+
+{% block content %}
+
+
+<div class="container" style="margin: 50px auto;">
+		<!-- <h2 style="text-align: center;">查看所有商品</h2> -->
+		{% for i in Sgood %}
+			<!-- sgood里面存储的是一个商店的商品集合 -->
+				{% for s in i %}
+					{% for g in Good %}
+						{% if g.good_id == s.good_id_id %}
+							<div class="col-md-3 product-left"> 
+								<div class="p-one simpleCart_shelfItem">							
+										<a href="/user/goodDetal/{{g.good_id}}/{{s.store_id_id}}">
+											<!-- 商品图片 -->
+											<img style="width: 280px;" src="/{{g.good_img}}" alt="正在加载中..." />
+											<div class="mask">
+												<span>Quick View</span>
+											</div>
+										</a>
+									<h4>{{g.good_name}}</h4>
+									
+									<p><a class="item_add" href="#"><i></i> <span class=" item_price">{{g.good_price}}</span></a></p>				
+								</div>
+								<span>销量：{{s.sale_num}}</span><span>库存：{{s.rema_num}}</span><br>
+								
+								<a href="/user/buyGoods/{{g.good_id}}/{{s.store_id_id}}">购买</a>
+								<a href="/user/addCart/{{g.good_id}}/{{s.store_id_id}}">加入购物车</a>
+								<a href="/user/enterShop/{{s.store_id_id}}">进入该店铺</a>
+								<br><br>
+							</div>
+							{% endif %}
+						{% endfor %}
+					{% endfor %}
+				{% endfor %}			
+		</div>
+
+
+<hr >
+	
+{% endblock %}

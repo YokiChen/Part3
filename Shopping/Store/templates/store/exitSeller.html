@@ -1,0 +1,45 @@
+
+{% extends 'shop_base.html' %}
+
+{% block title %}修改商品信息{% endblock %}
+
+{% block style %}
+	<style type="text/css">
+		#div1 th{
+			width: 200px;
+			text-align: center;
+			background-color: #FCF8E3;
+		}
+		#div1 td{
+			
+			text-align: center;
+		}
+	</style>
+{% endblock %}
+
+{% block content %}
+<br><br>
+
+	<div class="container" style="background-color: #D0E9C6; ">
+		<div class="col-lg-7 col-lg-offset-3">
+			<h3 style="font-weight: 600;">{{msg}},您已经退出登录，欢迎下次再来</h3>
+		</div>
+		<br>
+		<br>
+		<br>
+		<div style="" class="col-lg-2 col-lg-offset-8">
+			<a style="font-size: 20px; " href="/user/index/">返回首页</a>
+		</div>
+		
+	</div>
+
+
+
+	
+{% endblock %}
+
+
+
+
+
+

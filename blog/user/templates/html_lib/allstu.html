@@ -1,0 +1,21 @@
+{% extends 'baseblog.html' %}
+
+{% block content %}
+<br><br>
+    <div style="position:relative; left:160px ;width:350px;">
+        <h1>查看所有学生信息</h1>
+        <table >
+            {% for stu in students %}
+            <tr>
+                <td><h2>{{stu.name}}</h2></td>
+                <td> <h2>{{stu.teaid_id}}</h2></td>
+                <td>
+                    <a href="/user/updateUser/{{stu.id}}">修改</a>
+                    <a href="/user/deleteUser/{{stu.id}}">删除</a>
+                    <a href="/user/putartcle/{{stu.id}}">学生的文章</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

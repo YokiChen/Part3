@@ -1,0 +1,25 @@
+{% extends 'pink_base.html' %}
+
+{% block content %}
+<br><br>
+    <div style="width:650px;">
+        <h1>查看所有文章</h1>
+        <table >
+            {% for art in arts %}
+
+            <div>
+                <h2 style="color:white">{{art.author}}</h2>
+                <br>
+                <h5 style="color:white">{{art.content}}</h5>
+                <br>
+                <img src="/static/img/{{art.id}}.jpg" style="width:400px" alt="图片无法识别">
+                <br>
+                <a style="color:white; font-size:20px" href="/user/updateart/{{art.id}}">修改</a>
+                <a style="color:white; font-size:20px"  href="/user/deleteart/{{art.id}}">删除</a>
+                <hr style="color: yellow">
+            </div>
+
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

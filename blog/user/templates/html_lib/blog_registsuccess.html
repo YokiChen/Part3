@@ -1,0 +1,40 @@
+{% extends 'baseblog.html' %}
+
+{% block content %}
+
+        {% if errorRe == '用户名已存在' %}
+        <div style="position:relative; left:160px ">
+            <h1>用户名已被注册，请点击重新登录</h1>
+            <br><br>
+            <a style="font-size:30px; color:red" href="/user/blog_login/">请点我</a>
+
+        </div>
+
+        {% elif errorRe == '密码两次输入不同，请重新输入' %}
+        <div style="position:relative; left:160px ">
+            <h1>用户名已被注册，请点击重新登录</h1>
+            <br><br>
+            <a style="font-size:30px; color:red" href="/user/blog_login/">请点我</a>
+
+        </div>
+        {% elif errorRe == '密码长度不足' %}
+        <div style="position:relative; left:160px ">
+            <h1>密码长度不足，请点击重新登录</h1>
+            <br><br>
+            <a style="font-size:30px; color:red" href="/user/blog_login/">请点我</a>
+
+        </div>
+
+        {% else %}
+        <div style="position:relative; left:160px ">
+            <h1>恭喜你，注册成功</h1>
+            <br><br>
+            <h1>点我，开启致富之路</h1>
+            <br>
+            <form action="/user/blog_login/">
+                <input type="submit" value="确定">
+            </form>
+
+        </div>
+        {% endif %}
+{% endblock %}

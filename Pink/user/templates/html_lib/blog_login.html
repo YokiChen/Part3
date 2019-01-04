@@ -1,0 +1,149 @@
+<!--
+	Author: W3layouts
+	Author URL: http://w3layouts.com
+	License: Creative Commons Attribution 3.0 Unported
+	License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <title>Payment Tab Widget Flat Responsive Widget Template :: w3layouts</title>
+    <!-- Meta-Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Payment Tab Widget a Responsive Web Template, Bootstrap Web Templates, Flat Web Templates, Android Compatible Web Template, Smartphone Compatible Web Template, Free Webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design">
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+	
+    <!-- //Meta-Tags -->
+    <!-- Index-Page-CSS -->
+    <link rel="stylesheet" href="/static/css/style.css" type="text/css" media="all">
+    <!-- easy-responsive-tabs css -->
+    <link rel="stylesheet" href="/static/css/easy-responsive-tabs.css" type="text/css" media="all" />
+    <link href="//fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i" rel="stylesheet">
+
+</head>
+
+<body>
+    <h1 class="title-agile text-center">Welcome to Pink Sky!!</h1>
+    <div class="w3ls-main">
+        <!--/tabs-->
+        <div class="responsive_tabs w3ls_tab">
+            <div id="horizontalTab">
+                <ul class="resp-tabs-list" style="width: 2445px;">
+                    <li>Please enter your information.</li>
+                </ul>
+                <div class="resp-tabs-container">
+                    <!--tab_one-->
+                    <div class="tab1">
+                        <div class="agile_pay">
+                            <form action="/user/blog_login/" method="post" class="creditly-card-form shopf-sear-headinfo_form">
+                               {% csrf_token %}
+								<div style="color: white;">
+									
+									Username：<br>
+									<input style="height: 35px;width: 400px; background-color: white ; padding: 0;" class="shurukuang" type="text" name="name">
+										<br>
+										<br>
+										
+									Password：<input style="height: 35px;width: 400px; background-color: white ; padding: 0;" class="shurukuang" type="password" name="password">
+
+                                    <p >
+                                        Verification Code:
+                                        <br>
+                                        <!--<a href="{% url 'user:createCode' %}">点击生成验证码</a>-->
+                                        <input style="height: 26px;width: 120px; background-color: white ; padding: 0;" type="text" name="code" id="code">
+                                        <br><br>
+                                        <img src="/user/creatCode/" alt="" onclick="recode(this)">
+                                    </p>
+                                    <script>
+                                         function recode(node) {
+                                         node.src = '/user/creatCode/?search=' + Math.random();
+                                         }
+                                    </script>
+                                    <br>
+
+									Submit:
+									<br>
+									<input type="submit" style="height:40px; width: 400px;" value="Loging">
+									
+									
+									
+								</div>
+								
+
+
+                            </form>
+
+                        </div>
+                    </div>
+                    
+
+                </div>
+            </div>
+        </div>
+        <!--//tabs-->
+    </div>
+    <!-- //payment -->
+    <!-- Common js -->
+    <script type="text/javascript" src="/static/js/jquery-2.2.3.min.js"></script>
+    <!--// Common js -->
+    <!-- easy-responsive-tabs -->
+    <script src="/static/js/easy-responsive-tabs.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#horizontalTab').easyResponsiveTabs({
+                type: 'default', //Types: default, vertical, accordion           
+                width: 'auto', //auto or any width like 600px
+                fit: true, // 100% fit in a container
+                closed: 'accordion', // Start closed if in accordion view
+                activate: function (event) { // Callback function if tab is switched
+                    var $tab = $(this);
+                    var $info = $('#tabInfo');
+                    var $name = $('span', $info);
+                    $name.text($tab.text());
+                    $info.show();
+                }
+            });
+        });
+    </script>
+    <!-- //easy-responsive-tabs -->
+    <!-- credit-card -->
+    <script src="/static/js/creditly.js"></script>
+    <link rel="stylesheet" href="css/creditly.css" type="text/css" media="all" />
+    <script>
+        $(function () {
+            var creditly = Creditly.initialize(
+                '.creditly-wrapper .expiration-month-and-year',
+                '.creditly-wrapper .credit-card-number',
+                '.creditly-wrapper .security-code',
+                '.creditly-wrapper .card-type');
+
+            $(".creditly-card-form .submit").click(function (e) {
+                e.preventDefault();
+                var output = creditly.validate();
+                if (output) {
+                    // Your validated credit card output
+                    console.log(output);
+                }
+            });
+        });
+    </script>
+    <!-- //credit-card -->
+    <div class="copy-wthree text-center">
+        <p>© 2018 Payment Tab Widget. All Rights Reserved | Design by
+            <a href="http://w3layouts.com/" target="_blank">W3layouts</a>
+        </p>
+    </div>
+</body>
+<!-- //Body -->
+
+</html>

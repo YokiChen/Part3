@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>文章修改</title>
+		<style type="text/css">
+			*{
+				/* margin: 20px auto; */
+			}
+			#head_1 p{
+				position: relative;
+				top: 30px;
+				font-size: 50px;
+				margin: 0 50px;
+			}
+			h3{
+				position: relative;
+				top: 30px;
+				margin: 20px 50px;
+			}
+			#div1{
+				height: 700px;
+				margin: 10px auto;
+				background-image: url(img/3.jpg);
+				background-repeat: no-repeat;
+
+				color: white;
+			}
+			#head_2{
+				font-size: 25px;
+				position: relative;
+				left: 300px;
+			}
+			ul a{
+				position: relative;
+				top: 30px;
+				text-decoration: none;
+				color: #E6E6E6;
+				/* color: #BCE8F1; */
+			}
+			li{
+				/* background-color: #000000; */
+				/* opacity: 0.1; */
+				display: inline-block;
+				margin: 0;
+				width: 100px;
+				font-size: 22px;
+				font-weight: 500;
+				text-align: center;
+			}
+			#head_3 a{
+				display: inline-block;
+				text-decoration: none;
+				color: #2B669A;
+				position: absolute;
+				top: 500px;
+				right: 300px;
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" href="https://unpkg.com/animate.css@3.5.2/animate.min.css"/>
+		<script src="/static/tiny_mce/tiny_mce.js"></script>
+
+    </head>
+	<body>
+		<div id=div1 style="background-image: url(/static/img/4.jpg)">
+			<div class="animated bounce">
+				<ul>
+					<a href="">
+						<li>官网主页</li>
+					</a>
+					<a href="">
+						<li>注册</li>
+					</a>
+					<a href="">
+						<li>登录</li>
+					</a>
+					<a href="">
+						<li>关于我们</li>
+					</a>
+				</ul>
+			</div>
+			<div id="head_1"  class="animated ">
+				<p>Welcome to Blue Sky ! !</p>
+			</div>
+			<br><br><br>
+			<div style="position:absolute;left:60px">
+				<form action="" method="post">
+					{% csrf_token %}
+					标题：<input type="text" name="title">
+					<br>
+					内容：<textarea name="content" id="" cols="30" rows="10">
+
+					</textarea>
+					<br><br>
+					<input type="submit" value="确定上传">
+
+				</form>
+
+			</div>
+
+		</div>
+
+		<script>
+			tinyMCE.init({
+			"mode":"textareas",
+			"theme":"advanced",
+			"width":800,
+			"height":400,
+		})
+		</script>
+	</body>
+</html>

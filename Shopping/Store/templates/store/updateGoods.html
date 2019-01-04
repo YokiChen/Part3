@@ -1,0 +1,58 @@
+
+{% extends 'shop_base.html' %}
+
+{% block title %}修改商品信息{% endblock %}
+
+{% block style %}
+	<style type="text/css">
+		#div1 th{
+			width: 200px;
+			text-align: center;
+			background-color: #FCF8E3;
+		}
+		#div1 td{
+			
+			text-align: center;
+		}
+	</style>
+{% endblock %}
+
+{% block content %}
+<br><br>
+<div class="container">
+	
+	<div id="div1" class="col-lg-10 col-lg-offset-1">
+		<h1 style="text-align: center;">店铺商品的修改</h1>
+		<br>
+		
+		
+		<form action="{% url 'store:updateGoods' store_id good_id %}" method="post">
+			{% csrf_token %}
+			<table border="" cellspacing="" cellpadding="">
+				<tr style="height: 40px;">
+					<th>商品名字</th>
+					<th>销售量</th>
+					<th>原库存</th>
+					<th>新库存</th>
+					<th>原价格</th>
+					<th>修改后价格</th>
+				</tr>
+				<tr style="height: 40px;">
+					<td>{{old_goodinfo.good_name}}</td>
+					<td>{{old_kind.sale_num}}</td>
+					<td>{{old_kind.rema_num}}</td>
+					<td><input type="number" name="rema_num"  placeholder="请输入新库存量"/></td>
+					<td>{{old_goodinfo.good_price}}</td>
+					<td><input type="number" name="good_price"  placeholder="请填入新价格"/></td>
+				</tr>
+			</table>
+			
+			<input type="submit" value="保存"/>
+		</form>
+			
+	</div>
+</div>
+	
+
+	
+{% endblock %}

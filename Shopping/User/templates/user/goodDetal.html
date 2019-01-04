@@ -1,0 +1,68 @@
+
+{% extends 'shop_base.html' %}
+
+{% block title %}商品详情页面{% endblock %}
+
+
+{% block style %}
+	<style type="text/css">
+		#div1 th{
+			text-align: center;
+			background-color: #ff5d56;
+			color: white;
+		}
+		#div1 td{
+			background-color: antiquewhite;
+			text-align: center;
+		}
+	</style>
+{% endblock %}
+
+	{% block back %}
+	<div class="back">
+		<h2>Goods Detal</h2>
+	</div>
+	{% endblock %}
+
+{% block content %}
+<br><br>
+<div class="container">
+		<table border="2px" style="border: white 2px solid;">
+				<tr style="background-color: #FF5D56; height: 45px; color: #FFFFFF;">
+					 <th class="col-lg-1">商品id</th>
+					 <th class="col-lg-2">商品名字</th>
+					 <th class="col-lg-1">商品价格</th>
+					 <th class="col-lg-2">商品介绍</th>
+					 <th class="col-lg-1">商品销量</th>
+					 <th class="col-lg-1">商品库存</th>
+					 <th class="col-lg-1">所售店铺</th>
+					 <th class="col-lg-2">商品图片</th>
+					 <th class="col-lg-1">操作</th>
+					 
+				</tr>
+				<tr style="background-color: antiquewhite; text-align: center;">
+						<td>{{good.good_id}}</td>
+						<td>{{good.good_name}}</td>
+						<td>{{good.good_price}}</td>
+						<td>{{good.good_inst}}</td>
+						<td>{{good_info.sale_num}}</td>
+						<td>{{good_info.rema_num}}</td>
+						<td>{{good_info.store_id_id}}</td>
+						<td><img src="/{{good.good_img}}" style="width: 160px; margin: 14px 0;" ></td>
+						<td>
+							<a href="/user/buyGoods/{{good.good_id}}/{{good_info.store_id_id}}">购买</a>
+							<br>
+							<a href="/user/addCart/{{good.good_id}}/{{good_info.store_id_id}}">加入购物车</a>
+							<br>
+							<a href="/user/enterShop/{{good_info.store_id_id}}">进入该店铺</a>
+						</td>
+				</tr>
+		</table>
+</div>
+
+{% endblock %}
+
+
+
+
+

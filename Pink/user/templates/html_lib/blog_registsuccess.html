@@ -1,0 +1,40 @@
+{% extends 'pink_base.html' %}
+
+{% block content %}
+
+        {% if errorRe == '用户名已存在' %}
+        <div style="position:relative; left:40px ">
+            <h1>The username has been registered, please click to login again </h1>
+            <br><br>
+            <a style="font-size:30px; color:gainsboro" href="/user/blog_regist/">Back last page</a>
+
+        </div>
+
+        {% elif errorRe == '密码两次输入不同，请重新输入' %}
+        <div style="position:relative; left:40px ">
+            <h1>Password entered twice is different. Please re-enter it.</h1>
+            <br><br>
+            <a style="font-size:30px; color:gainsboro" href="/user/blog_regist/">Back last page</a>
+
+        </div>
+        {% elif errorRe == '密码长度不足' %}
+        <div style="position:relative; left:40px ">
+            <h1>The password length is insufficient. Please Click to login again. </h1>
+            <br><br>
+            <a style="font-size:30px; color:gainsboro" href="/user/blog_regist/">Back last page</a>
+        </div>
+
+        {% else %}
+        <div style="position:relative; left:40px ">
+            <h1>Congratulation! regist successful!</h1>
+            <br><br>
+            <h1>Click on me and open the way to wealth </h1>
+            <br>
+            <form action="/user/blog_login/">
+                <input type="submit" value="login page">
+            </form>
+        </div>
+    {% endif %}
+
+
+{% endblock %}

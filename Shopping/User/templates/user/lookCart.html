@@ -1,0 +1,91 @@
+{% extends 'shop_base.html' %}
+
+{% block title %}提交订单{% endblock %}
+
+{% block style %}
+	<style type="text/css">
+		#div1 th{
+			width: 200px;
+			text-align: center;
+			background-color: #FCF8E3;
+		}
+		th{
+			text-align: center;
+		}
+		#div1 td{
+			
+			text-align: center;
+		}
+	</style>
+	
+{% endblock %}
+
+	{% block back %}
+	<div class="back">
+		<h2>查看所有订单</h2>
+	
+	</div>
+	{% endblock %}
+
+{% block content %}
+<br><br><br>
+	<div class="container">
+		
+	{{msg}}
+	
+	<div class="col-lg-8 col-lg-offset-2">
+		<table border="2px" style="border: 2px solid white;">
+			<tr style="height: 50px; background-color: #ff5d56; color: white;">
+				<th class="col-lg-3">图片</th>
+				<th class="col-lg-2">名字</th>
+				<th class="col-lg-1">数量</th>
+				<th class="col-lg-1">单价</th>
+				<th class="col-lg-1">总价</th>
+				<th class="col-lg-2">操作</th>
+			</tr>
+			{% for c in cart %}
+			<tr style="background-color: blanchedalmond; text-align: center;">
+				<td><img src="/{{c.c_img}}" style="width: 180px; margin: 10px auto;"></td>
+				<td>{{c.c_name}}</td>
+				<td>{{c.c_num}}</td>
+				<td>{{c.c_price}}</td>
+				<td>{{c.c_total}}</td>
+				<td><a href="/user/delCart/{{c.c_id}}">删除</a></td>
+			</tr>
+			{% endfor %}
+		</table>
+			<br>
+			<div class="col-lg-1 col-lg-8">
+				<a href="/user/cartOrder"><div style="background-color:#ff5d56;width: 100px;height: 28px;color:white; font-size: 16px; border-radius: 5px;text-align: center;position: relative;left: 600px; padding-top: 3px;">提交订单</div></a>
+			</div>
+		
+	</div>
+		
+</div>		
+<br>
+<br>
+<br>
+	{% endblock %}
+	
+	
+	
+
+
+
+    
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+</body>
+</html>
